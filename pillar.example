@@ -1,22 +1,40 @@
-logfiles:
-  -
-    path: /var/log/adcade/*.log
-    options:
-      some: option
 logstash:
-  master_node: localhost
-  root_path: /srv/logstash
-  user: logstash
-  deb_package: https://download.elasticsearch.org/logstash/logstash/packages/debian/logstash_1.4.0-1-c82dc09_all.deb
+  lookup:
+    package: https://download.elasticsearch.org/logstash/logstash/packages/debian/logstash_1.4.0-1-c82dc09_all.deb
+  input:
+    redis_host: mini
+    redis_database: 0
+    redis_port: 6379
+    redis_key: logstash:beaver
+    redis_data_type: list
+  output: 
+    elasticsearch_host: mini
+    elasticsearch_port: 9200
+
 kibana:
   zip_url: http://download.elasticsearch.org/kibana/kibana/kibana-latest.zip
   root_path: /srv/www/kibana
+
 elasticsearch:
   hostname: mini
-  install_java: True
   deb_package: https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.1.1.deb
+
 beaver:
+  user: root
   config:
+    transport: redis
     redis_url: redis://localhost:6379/0
     redis_namespace: logstash:beaver
+    logstash_version: 1
     output: json
+  logfiles:
+    -
+      path: /var/log/adcade/*.log
+      options:
+        type: adcade
+        tags: adcade
+    -
+      path: /var/log/nginx/*.log
+      options:
+        type: nginx
+        tags: nginx
