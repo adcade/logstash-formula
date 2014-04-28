@@ -1,6 +1,7 @@
 {% from "logstash/map.jinja" import logstash with context %}
 {% set elasticsearch_host = salt['pillar.get']('logstash:output:elasticsearch_host', 'localhost') %}
 {% set elasticsearch_port = salt['pillar.get']('logstash:output:elasticsearch_port', 9200) %}
+{% set elasticsearch_template_path = salt['pillar.get']('logstash:output:elasticsearch_template_path', '/opt/logstash/lib/logstash/outputs/elasticsearch/elasticsearch-template.json') %}
 {% set redis_host = salt['pillar.get']('logstash:input:redis_host', 'localhost') %}
 {% set redis_port = salt['pillar.get']('logstash:input:redis_port', 9200) %}
 {% set redis_key = salt['pillar.get']('logstash:input:redis_key', 'logstash:beaver') %}
@@ -50,3 +51,4 @@ logstash:
     - context:
       elasticsearch_host: {{ elasticsearch_host }}
       elasticsearch_port: {{ elasticsearch_port }}
+      elasticsearch_template_path: {{ elasticsearch_template_path }}
