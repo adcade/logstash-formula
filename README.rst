@@ -30,4 +30,4 @@ Install the Logstash Beaver client.
 ``Dependencies``
 ----------------
 
-This formula requires the `Redis <https://github.com/Adcade/redis-formula>_` and `Nginx <https://github.com/Adcade/nginx-formula>_`
+This formula requires the `Redis <https://github.com/Adcade/redis-formula>`_ and `Nginx <https://github.com/Adcade/nginx-formula>`_ formula.
