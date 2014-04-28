@@ -1,6 +1,7 @@
 {% from "logstash/map.jinja" import logstash with context %}
 {% set zip_url = salt['pillar.get']('kibana:zip_url', 'http://download.elasticsearch.org/kibana/kibana/kibana-latest.zip') %}
 {% set root_path = salt['pillar.get']('kibana:root_path', '/srv/www/kibana') %}
+{% set kibana_port = salt['pillar.get']('kibana:port', 8000 ) %}
 {% set hostname = salt['pillar.get']('kibana:fqdn', salt['grains.get']('fqdn')) %}
 
 include:
