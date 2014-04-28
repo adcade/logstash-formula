@@ -3,6 +3,7 @@ logstash
 =====
 
 Install Logstash with Elasticsearch, Redis, Kibana, and Beaver.
+Only tested on Ubuntu 12.04.. should work with CentOS.
 
 .. note::
 
@@ -28,5 +29,7 @@ Install the Logstash Beaver client.
 
 ``Dependencies``
 ----------------
-``nginx``
-``redis``
+
+This formula requires the Redis_ and Nginx_ formula.
+..  _Redis: https://github.com/Adcade/redis-formula
+..  _Nginx: https://github.com/Adcade/nginx-formula
