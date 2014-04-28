@@ -1,0 +1,24 @@
+{% set logstash = salt['grains.filter_by']({
+    'Debian': {
+        'logstash': 'https://download.elasticsearch.org/logstash/logstash/packages/debian/logstash_1.4.0-1-c82dc09_all.deb',
+        'elasticsearch': 'https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.1.1.deb',
+        'nginx': 'nginx',
+        'nginx_path': '/etc/nginx/sites-enabled',
+        'java': 'openjdk-7-jdk',
+        'git': 'git',
+        'wget': 'wget',
+        'unzip': 'unzip',
+        'pip': 'python-pip',
+    },
+    'RedHat': {
+        'logstash': 'https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.1.1.noarch.rpm',
+        'elasticsearch': 'https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.1.1.rpm',
+        'nginx': 'nginx',
+        'nginx_path': '/etc/nginx/conf.d',
+        'java': 'java-1.7.0-openjdk',
+        'git': 'git',
+        'wget': 'wget',
+        'unzip': 'unzip',
+        'pip': 'python-pip',
+    },
+}, merge=salt['pillar.get']('logstash:lookup')) %}
