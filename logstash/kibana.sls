@@ -68,3 +68,4 @@ kibana_nginx_config:
     - context:
         hostname: {{ hostname }}
         root_path: {{ root_path }}
+        kibana_port: {{ kibana_port }}
