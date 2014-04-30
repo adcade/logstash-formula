@@ -3,7 +3,7 @@
 {% set root_path = salt['pillar.get']('kibana:root_path', '/srv/www/kibana') %}
 {% set kibana_port = salt['pillar.get']('kibana:port', 9000 ) %}
 {% set elasticsearch_url = salt['pillar.get']('kibana:elasticsearch_url', salt['grains.get']('fqdn')) %}
-{% set hostname = salt['pillar.get']('kibana:fqdn', salt['grains.get']('fqdn')) %}
+{% set hostname = salt['pillar.get']('kibana:server_name', salt['grains.get']('fqdn')) %}
 
 include:
   - nginx
