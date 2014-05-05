@@ -58,16 +58,3 @@ kibana_config:
         hostname: {{ hostname }}
         root_path: {{ root_path }}
         elasticsearch_url: {{ elasticsearch_url }}
-
-kibana_nginx_config:
-  file.managed:
-    - name: {{ logstash.nginx_path }}/kibana.conf
-    - user: root
-    - group: root
-    - mode: 644
-    - template: jinja
-    - source: salt://logstash/files/kibana.conf
-    - context:
-        hostname: {{ hostname }}
-        root_path: {{ root_path }}
-        kibana_port: {{ kibana_port }}
