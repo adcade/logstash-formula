@@ -1,7 +1,7 @@
 {% set logstash = salt['grains.filter_by']({
     'Debian': {
-        'logstash': 'https://download.elasticsearch.org/logstash/logstash/packages/debian/logstash_1.4.0-1-c82dc09_all.deb',
-        'elasticsearch': 'https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.1.1.deb',
+        'logstash': 'https://download.elasticsearch.org/logstash/logstash/packages/debian/logstash_1.4.2-1-2c0f5a1_all.deb',
+        'elasticsearch': 'https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.2.1.deb',
         'nginx': 'nginx',
         'nginx_path': '/etc/nginx/sites-enabled',
         'java': 'openjdk-7-jdk',
@@ -11,8 +11,8 @@
         'pip': 'python-pip',
     },
     'RedHat': {
-        'logstash': 'https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.1.1.noarch.rpm',
-        'elasticsearch': 'https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.1.1.rpm',
+        'logstash': 'https://download.elasticsearch.org/logstash/logstash/packages/centos/logstash-1.4.2-1_2c0f5a1.noarch.rpm',
+        'elasticsearch': 'https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.2.1.noarch.rpm',
         'nginx': 'nginx',
         'nginx_path': '/etc/nginx/conf.d',
         'java': 'java-1.7.0-openjdk',
