@@ -5,9 +5,6 @@
 {% set elasticsearch_url = salt['pillar.get']('kibana:elasticsearch_url', salt['grains.get']('fqdn')) %}
 {% set hostname = salt['pillar.get']('kibana:server_name', salt['grains.get']('fqdn')) %}
 
-include:
-  - nginx
-
 kibana_reqs:
   pkg.installed:
     - pkgs:
