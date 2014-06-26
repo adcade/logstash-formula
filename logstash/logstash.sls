@@ -8,7 +8,6 @@
 {% set redis_data_type = salt['pillar.get']('logstash:input:redis_data_type', 'list') %}
 
 include:
-  - redis
   - .kibana
   - .elasticsearch
 
